@@ -1,32 +1,32 @@
 # Markdown AI Claim Graph
 
-[ภาษาไทย](README.th.md)
+[English](README.md)
 
 ![Markdown AI Claim Graph banner](assets/banner.svg)
 
-A graph-native skill for building typed claim graphs from Markdown analyst files.
+สกิลแบบ graph-native สำหรับสร้าง claim graph แบบมีชนิดข้อมูลชัดเจนจากไฟล์วิเคราะห์ Markdown
 
-Markdown AI Claim Graph does one thing: it constructs a claim graph and renders that graph as tables, Mermaid, JSON, and a graph-derived decision.
+Markdown AI Claim Graph มีหน้าที่หลักอย่างเดียวคือสร้าง claim graph แล้วแสดงผลกราฟนั้นออกมาเป็นตาราง, Mermaid, JSON และ decision ที่สรุปจากกราฟ
 
-## Installation
+## การติดตั้ง
 
-Install this skill into your Codex skills directory as `markdown-ai-claim-graph`.
+ติดตั้งสกิลนี้ไว้ในโฟลเดอร์ Codex skills ของคุณในชื่อ `markdown-ai-claim-graph`
 
-### Option 1: Clone into `~/.codex/skills`
+### วิธีที่ 1: Clone ไปที่ `~/.codex/skills`
 
 ```bash
 git clone https://github.com/puwarun/markdown-ai-claim-graph.git ~/.codex/skills/markdown-ai-claim-graph
 ```
 
-### Option 2: Copy this folder into an existing skills directory
+### วิธีที่ 2: คัดลอกโฟลเดอร์ไปไว้ใน skills directory ที่มีอยู่แล้ว
 
-Place this repository at:
+ให้นำ repository นี้ไปวางที่:
 
 ```text
 ~/.codex/skills/markdown-ai-claim-graph
 ```
 
-The final structure should look like:
+โครงสร้างสุดท้ายควรเป็นแบบนี้:
 
 ```text
 ~/.codex/skills/markdown-ai-claim-graph/
@@ -34,15 +34,15 @@ The final structure should look like:
 └── agents/openai.yaml
 ```
 
-### Verify
+### ตรวจสอบการใช้งาน
 
 ```text
-Use $markdown-ai-claim-graph to build a claim graph from these Markdown analyst files and output node and edge tables, Mermaid, JSON, and the final decision.
+ใช้ $markdown-ai-claim-graph เพื่อสร้าง claim graph จากไฟล์วิเคราะห์ Markdown เหล่านี้ และแสดง Node Table, Edge Table, Mermaid, JSON และการตัดสินใจสุดท้าย
 ```
 
-## Primary Output
+## ผลลัพธ์หลัก
 
-The standard output order is:
+ลำดับผลลัพธ์มาตรฐานคือ:
 
 1. Node Table
 2. Edge Table
@@ -50,15 +50,15 @@ The standard output order is:
 4. JSON Graph
 5. Decision Summary
 
-This project is organized around those outputs.
+เอกสารและ workflow ของโปรเจกต์นี้ยึดลำดับผลลัพธ์นี้เป็นหลัก
 
-## How to Use
+## วิธีใช้งาน
 
-Markdown AI Claim Graph is used by giving an AI assistant two or more Markdown analysis files and asking it to build a graph-native reasoning map from them.
+Markdown AI Claim Graph ใช้งานโดยให้ AI assistant อ่านไฟล์วิเคราะห์ Markdown อย่างน้อย 2 ไฟล์ แล้วสั่งให้สร้าง graph-native reasoning map จากไฟล์เหล่านั้น
 
-The graph is the primary output.
+กราฟคือผลลัพธ์หลัก
 
-### Basic Prompt
+### Prompt พื้นฐาน
 
 ```text
 Use Markdown AI Claim Graph with the attached Markdown analysis files.
@@ -84,9 +84,9 @@ Rules:
 - Keep the graph as the main output
 ```
 
-### Example: Codex + Gemini Analysis
+### ตัวอย่าง: Codex + Gemini Analysis
 
-Input files:
+ไฟล์ input:
 
 - `codex_analyst.md`
 - `gemini_analyst.md`
@@ -114,7 +114,32 @@ Output:
 5. Decision Summary
 ```
 
-### Example Output Structure
+### ตัวอย่างการใช้งานภาษาไทย
+
+```text
+ใช้ Markdown AI Claim Graph วิเคราะห์ไฟล์ .md ที่แนบมา
+
+Context:
+ไฟล์เหล่านี้เป็นผลวิเคราะห์จาก AI หลายตัวเกี่ยวกับ performance ของ encryption library
+
+Goal:
+แปลงผลวิเคราะห์ทั้งหมดให้เป็น graph โดยแยก claim, evidence, risk, recommendation และ decision
+
+Output:
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+
+เงื่อนไข:
+- ไม่ต้องเขียนรายงานยาวก่อน
+- ให้ graph เป็น output หลัก
+- แสดงให้ชัดว่า AI เห็นตรงกันตรงไหน และขัดแย้งกันตรงไหน
+- สรุปว่าอะไรควรทำตอนนี้ ทำทีหลัง ทำแบบมีเงื่อนไข หรือควรหลีกเลี่ยง
+```
+
+### ตัวอย่างโครงสร้างผลลัพธ์
 
 #### Node Table
 
@@ -225,13 +250,13 @@ graph TD
 
 ## Two-Pass Cross-Aware Review
 
-### What it is
+### คืออะไร
 
-Two-Pass Cross-Aware Review is an optional advanced workflow for cases where you want stronger disagreement detection before building the final claim graph.
+Two-Pass Cross-Aware Review เป็น workflow เสริมแบบ advanced สำหรับกรณีที่ต้องการจับจุดขัดแย้งให้ลึกขึ้นก่อนสร้าง claim graph สุดท้าย
 
-In this workflow, each AI analyst first produces an independent Markdown analysis. Then each analyst reviews the other analyst's file and revises its own output before Markdown AI Claim Graph builds the final graph.
+workflow นี้ให้ AI แต่ละตัวเขียน Markdown analysis ของตัวเองก่อน จากนั้นให้อ่านงานของอีกฝ่ายและปรับปรุงไฟล์ของตัวเองอีกหนึ่งรอบ ก่อนนำไฟล์ที่อัปเดตแล้วเข้าสู่ Markdown AI Claim Graph
 
-The final goal is still the same:
+เป้าหมายสุดท้ายยังคงเหมือนเดิม:
 
 1. Node Table
 2. Edge Table
@@ -239,28 +264,28 @@ The final goal is still the same:
 4. JSON Graph
 5. Decision Summary
 
-### When to use it
+### ใช้เมื่อไร
 
-Use this workflow when:
+เหมาะเมื่อ:
 
-- the topic is complex
-- the decision affects production, security, architecture, or performance
-- multiple AI agents give different recommendations
-- you want stronger disagreement detection
-- you want graph-ready inputs that already include cross-review context
+- หัวข้อมีความซับซ้อน
+- การตัดสินใจกระทบ production, security, architecture หรือ performance
+- AI หลายตัวให้คำแนะนำไม่ตรงกัน
+- ต้องการตรวจจับ disagreement ให้ชัดขึ้น
+- ต้องการ graph-ready inputs ที่มี cross-review context ติดมาด้วยแล้ว
 
 ### Workflow
 
 #### Pass 1: Independent Analysis
 
-Each AI agent analyzes the target project independently and writes its own Markdown analysis file.
+AI แต่ละตัววิเคราะห์โปรเจกต์อย่างอิสระและเขียนผลลัพธ์ของตัวเองลงไฟล์ Markdown
 
-Example output files:
+ตัวอย่างไฟล์:
 
 - `codex_analyst.md`
 - `gemini_analyst.md`
 
-Each independent file should include:
+แต่ละไฟล์ควรมี:
 
 - key claims
 - evidence
@@ -271,14 +296,14 @@ Each independent file should include:
 
 #### Pass 2: Cross-Aware Revision
 
-Each AI agent reads the other analyst's Markdown file and updates its own file.
+AI แต่ละตัวอ่านไฟล์ของอีกฝ่ายแล้วอัปเดตไฟล์ของตัวเอง
 
-Typical flow:
+ตัวอย่าง flow:
 
-- Codex reads `gemini_analyst.md` and updates `codex_analyst.md`
-- Gemini reads `codex_analyst.md` and updates `gemini_analyst.md`
+- Codex อ่าน `gemini_analyst.md` แล้วอัปเดต `codex_analyst.md`
+- Gemini อ่าน `codex_analyst.md` แล้วอัปเดต `gemini_analyst.md`
 
-Each updated file should include:
+ไฟล์ที่อัปเดตแล้วควรมี:
 
 - original analysis
 - agreements with the other analyst
@@ -290,9 +315,9 @@ Each updated file should include:
 - graph-ready edges
 - decision recommendations
 
-#### Final Step: Claim Graph Generation
+#### ขั้นสุดท้าย: Claim Graph Generation
 
-After both analyst files are updated, use Markdown AI Claim Graph to generate:
+หลังจากอัปเดตไฟล์ของทั้งสองฝ่ายแล้ว ใช้ Markdown AI Claim Graph เพื่อสร้าง:
 
 1. Node Table
 2. Edge Table
@@ -394,7 +419,7 @@ Compare:
 The graph is the primary output. Do not write a long narrative report first.
 ```
 
-### Expected Output Files
+### ไฟล์ผลลัพธ์ที่คาดหวัง
 
 ```text
 codex_analyst.md
@@ -407,14 +432,14 @@ claim_graph.md
   Final graph-native output containing Node Table, Edge Table, Mermaid Graph, JSON Graph, and Decision Summary
 ```
 
-### Notes and Best Practices
+### Notes และ Best Practices
 
-- Run independent analysis first to avoid circular dependency
-- Do not ask both agents to review each other before both initial files exist
-- Keep each analysis structured and graph-ready
-- Prefer short claims, explicit evidence, clear risks, and concrete recommendations
-- Use this workflow only when deeper analysis is worth the extra token cost
-- Keep the final output graph-first and decision-oriented
+- ทำ independent analysis ก่อนเสมอเพื่อหลีกเลี่ยง circular dependency
+- อย่าให้ทั้งสอง agent review กันก่อนที่ initial files จะถูกสร้างครบ
+- รักษาโครงสร้างของแต่ละ analysis ให้ graph-ready
+- ใช้ claims ที่สั้น, evidence ที่ชัด, risks ที่ตรงประเด็น และ recommendations ที่ลงมือทำได้
+- ใช้ workflow นี้เมื่อคุณต้องการความลึกเพิ่มจริง ๆ เพราะจะใช้ token มากขึ้น
+- ให้ผลลัพธ์สุดท้ายยังคง graph-first และ decision-oriented
 
 ## Graph Model
 
@@ -442,32 +467,32 @@ claim_graph.md
 - `leads_to`
 - `belongs_to`
 
-## Workflow
+## Workflow หลัก
 
-1. Create source nodes from input Markdown files.
-2. Extract topics, claims, evidence, risks, recommendations, and decisions as nodes.
-3. Connect those nodes with typed edges.
-4. Render the same graph as tables, Mermaid, and JSON.
-5. Write the decision summary from the rendered graph.
+1. สร้าง source nodes จากไฟล์ Markdown ที่รับเข้า
+2. แยก topics, claims, evidence, risks, recommendations และ decisions ออกมาเป็น nodes
+3. เชื่อม nodes เหล่านั้นด้วย typed edges
+4. แสดงกราฟเดียวกันในรูปแบบตาราง, Mermaid และ JSON
+5. เขียน decision summary จากกราฟที่สร้างแล้ว
 
-## What The Graph Captures
+## สิ่งที่กราฟนี้เก็บ
 
-- analyst provenance
-- file provenance
-- claim structure
-- support and contradiction
-- qualification and dependency
-- risk and mitigation
-- recommendation flow
-- decision logic
+- provenance ของ analyst
+- provenance ของไฟล์
+- โครงสร้างของ claims
+- support และ contradiction
+- qualification และ dependency
+- risk และ mitigation
+- flow ของ recommendation
+- logic ของ decision
 
-## Included Examples
+## ตัวอย่างไฟล์ใน repo
 
 - `examples/codex_review.md`
 - `examples/claude_review.md`
 - `examples/claim_graph_output.md`
 
-## Repository Layout
+## โครงสร้าง repository
 
 ```text
 .
@@ -486,8 +511,8 @@ claim_graph.md
     └── openai.yaml
 ```
 
-## Main Files
+## ไฟล์หลัก
 
-- `SKILL.md`: graph workflow and output contract
-- `agents/openai.yaml`: UI metadata and default prompt
-- `examples/`: source Markdown files plus graph output example
+- `SKILL.md`: workflow ของกราฟและ output contract
+- `agents/openai.yaml`: metadata สำหรับ UI และ default prompt
+- `examples/`: ตัวอย่าง source Markdown และ graph output
