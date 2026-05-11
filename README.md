@@ -1,5 +1,7 @@
 # Markdown AI Claim Graph
 
+![Markdown AI Claim Graph banner](assets/banner.svg)
+
 A graph-native skill for turning Markdown analyst reports into a structured claim graph.
 
 This project replaces the old report-first cross-review workflow with a graph-first workflow. The graph is the primary output. Prose comes last and must be derived from the graph.
@@ -11,7 +13,7 @@ Install this skill into your Codex skills directory as `markdown-ai-claim-graph`
 ### Option 1: Clone into `~/.codex/skills`
 
 ```bash
-git clone https://github.com/puwarun/Markdown-based-AI-Cross-Review-Skill.git ~/.codex/skills/markdown-ai-claim-graph
+git clone https://github.com/puwarun/markdown-ai-claim-graph.git ~/.codex/skills/markdown-ai-claim-graph
 ```
 
 ### Option 2: Copy this folder into an existing skills directory

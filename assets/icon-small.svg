@@ -3,6 +3,10 @@
   <rect x="14" y="24" width="42" height="56" rx="8" fill="#1F6FEB"/>
   <rect x="72" y="48" width="42" height="56" rx="8" fill="#38BDF8"/>
   <circle cx="64" cy="64" r="16" fill="#F8FAFC" stroke="#0B1220" stroke-width="5"/>
-  <path d="M57 64H71" stroke="#0B1220" stroke-width="5" stroke-linecap="round"/>
-  <path d="M64 57V71" stroke="#0B1220" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="57" cy="59" r="3" fill="#0B1220"/>
+  <circle cx="70" cy="60" r="3" fill="#0B1220"/>
+  <circle cx="63" cy="71" r="3" fill="#0B1220"/>
+  <path d="M60 60L67 60" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M58 62L61 68" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M68 62L65 68" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
