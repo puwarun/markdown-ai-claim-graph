@@ -82,6 +82,36 @@ Rules:
 - Keep the graph as the main output
 ```
 
+### Example: Codex + Gemini Analysis
+
+Input files:
+
+- `codex_analyst.md`
+- `gemini_analyst.md`
+
+Prompt:
+
+```text
+Use Markdown AI Claim Graph to analyze codex_analyst.md and gemini_analyst.md.
+
+Context:
+Both files are performance analyses of an encryption library.
+
+Goal:
+Create a graph that shows:
+- which claims are shared
+- which recommendations conflict
+- which risks qualify the recommendations
+- what should be done now, later, conditionally, or avoided
+
+Output:
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+```
+
 ## Graph Model
 
 ### Node Types
