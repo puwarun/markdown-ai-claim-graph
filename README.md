@@ -10,12 +10,12 @@ Markdown AI Claim Graph does one thing: it constructs a claim graph and renders 
 
 ## Installation
 
-Install this skill into your Codex skills directory as `markdown-ai-claim-graph`.
+Install this skill into your Codex skills directory as `mag`.
 
 ### Option 1: Clone into `~/.codex/skills`
 
 ```bash
-git clone https://github.com/puwarun/markdown-ai-claim-graph.git ~/.codex/skills/markdown-ai-claim-graph
+git clone https://github.com/puwarun/markdown-ai-claim-graph.git ~/.codex/skills/mag
 ```
 
 ### Option 2: Copy this folder into an existing skills directory
@@ -23,13 +23,13 @@ git clone https://github.com/puwarun/markdown-ai-claim-graph.git ~/.codex/skills
 Place this repository at:
 
 ```text
-~/.codex/skills/markdown-ai-claim-graph
+~/.codex/skills/mag
 ```
 
 The final structure should look like:
 
 ```text
-~/.codex/skills/markdown-ai-claim-graph/
+~/.codex/skills/mag/
 ├── SKILL.md
 └── agents/openai.yaml
 ```
@@ -37,7 +37,7 @@ The final structure should look like:
 ### Verify
 
 ```text
-Use $markdown-ai-claim-graph to build a claim graph from these Markdown analyst files and output node and edge tables, Mermaid, JSON, and the final decision.
+Use $mag to build a claim graph from these Markdown analyst files and output node and edge tables, Mermaid, JSON, and the final decision.
 ```
 
 ## Primary Output

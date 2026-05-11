@@ -1,5 +1,5 @@
 ---
-name: markdown-ai-claim-graph
+name: mag
 description: Use this skill to build a typed claim graph from one or more Markdown analyst files, then output node and edge tables, Mermaid, JSON, and a decision summary derived from the graph.
 ---
 

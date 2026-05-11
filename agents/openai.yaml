@@ -4,7 +4,7 @@ interface:
   icon_small: "./assets/icon-small.svg"
   icon_large: "./assets/icon.svg"
   brand_color: "#1F6FEB"
-  default_prompt: "Use $markdown-ai-claim-graph to convert Markdown analyst reports into a typed claim graph with node and edge tables, Mermaid, JSON, and a decision summary."
+  default_prompt: "Use $mag to convert Markdown analyst reports into a typed claim graph with node and edge tables, Mermaid, JSON, and a decision summary."
 
 policy:
   allow_implicit_invocation: true
