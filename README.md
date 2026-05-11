@@ -50,6 +50,38 @@ The standard output order is:
 
 This project is organized around those outputs.
 
+## How to Use
+
+Markdown AI Claim Graph is used by giving an AI assistant two or more Markdown analysis files and asking it to build a graph-native reasoning map from them.
+
+The graph is the primary output.
+
+### Basic Prompt
+
+```text
+Use Markdown AI Claim Graph with the attached Markdown analysis files.
+
+Context:
+<Briefly describe what the files are about>
+
+Goal:
+Build a graph-first review from the analysis.
+
+Output:
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+
+Rules:
+- Extract claims, evidence, risks, recommendations, and decisions as nodes
+- Connect nodes with explicit relationships
+- Show where analysts agree or disagree
+- Do not write a long narrative report first
+- Keep the graph as the main output
+```
+
 ## Graph Model
 
 ### Node Types
