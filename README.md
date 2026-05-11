@@ -246,6 +246,199 @@ graph TD
 - Do not weaken RSA settings purely for speed without an explicit security decision
 ```
 
+## Two-Pass Cross-Aware Review
+
+### What it is
+
+Two-Pass Cross-Aware Review is an optional advanced workflow for cases where you want stronger disagreement detection before building the final claim graph.
+
+In this workflow, each AI analyst first produces an independent Markdown analysis. Then each analyst reviews the other analyst's file and revises its own output before Markdown AI Claim Graph builds the final graph.
+
+The final goal is still the same:
+
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+
+### When to use it
+
+Use this workflow when:
+
+- the topic is complex
+- the decision affects production, security, architecture, or performance
+- multiple AI agents give different recommendations
+- you want stronger disagreement detection
+- you want graph-ready inputs that already include cross-review context
+
+### Workflow
+
+#### Pass 1: Independent Analysis
+
+Each AI agent analyzes the target project independently and writes its own Markdown analysis file.
+
+Example output files:
+
+- `codex_analyst.md`
+- `gemini_analyst.md`
+
+Each independent file should include:
+
+- key claims
+- evidence
+- risks
+- recommendations
+- initial verdict
+- graph-ready summary
+
+#### Pass 2: Cross-Aware Revision
+
+Each AI agent reads the other analyst's Markdown file and updates its own file.
+
+Typical flow:
+
+- Codex reads `gemini_analyst.md` and updates `codex_analyst.md`
+- Gemini reads `codex_analyst.md` and updates `gemini_analyst.md`
+
+Each updated file should include:
+
+- original analysis
+- agreements with the other analyst
+- disagreements with the other analyst
+- strengths of the other analyst's analysis
+- weaknesses or missed risks in the other analyst's analysis
+- revised verdict
+- graph-ready nodes
+- graph-ready edges
+- decision recommendations
+
+#### Final Step: Claim Graph Generation
+
+After both analyst files are updated, use Markdown AI Claim Graph to generate:
+
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+
+### Copy/Paste Prompts
+
+#### Codex Independent Analysis
+
+```text
+Analyze this project independently and write your findings to codex_analyst.md.
+
+Focus on:
+- key claims
+- evidence
+- risks
+- recommendations
+- initial verdict
+- graph-ready summary
+
+Do not compare with other AI analysis yet.
+Keep the output suitable for Markdown AI Claim Graph.
+```
+
+#### Gemini Independent Analysis
+
+```text
+Analyze this project independently and write your findings to gemini_analyst.md.
+
+Focus on:
+- key claims
+- evidence
+- risks
+- recommendations
+- initial verdict
+- graph-ready summary
+
+Do not compare with other AI analysis yet.
+Keep the output suitable for Markdown AI Claim Graph.
+```
+
+#### Codex Cross-Review Update
+
+```text
+Read gemini_analyst.md, compare it with codex_analyst.md, and update codex_analyst.md.
+
+Add a Cross-Review section containing:
+- agreements with Gemini
+- disagreements with Gemini
+- strengths of Gemini's analysis
+- weaknesses or missed risks in Gemini's analysis
+- revised Codex verdict
+- graph-ready nodes
+- graph-ready edges
+- decision recommendations
+
+Keep the file suitable for Markdown AI Claim Graph.
+```
+
+#### Gemini Cross-Review Update
+
+```text
+Read codex_analyst.md, compare it with gemini_analyst.md, and update gemini_analyst.md.
+
+Add a Cross-Review section containing:
+- agreements with Codex
+- disagreements with Codex
+- strengths of Codex's analysis
+- weaknesses or missed risks in Codex's analysis
+- revised Gemini verdict
+- graph-ready nodes
+- graph-ready edges
+- decision recommendations
+
+Keep the file suitable for Markdown AI Claim Graph.
+```
+
+#### Final Claim Graph Generation
+
+```text
+Use Markdown AI Claim Graph to analyze codex_analyst.md and gemini_analyst.md.
+
+Create:
+1. Node Table
+2. Edge Table
+3. Mermaid Graph
+4. JSON Graph
+5. Decision Summary
+
+Compare:
+- agreements
+- disagreements
+- strengths and weaknesses
+- risks
+- final recommended actions
+
+The graph is the primary output. Do not write a long narrative report first.
+```
+
+### Expected Output Files
+
+```text
+codex_analyst.md
+  Independent Codex analysis + Codex cross-review of Gemini
+
+gemini_analyst.md
+  Independent Gemini analysis + Gemini cross-review of Codex
+
+claim_graph.md
+  Final graph-native output containing Node Table, Edge Table, Mermaid Graph, JSON Graph, and Decision Summary
+```
+
+### Notes and Best Practices
+
+- Run independent analysis first to avoid circular dependency
+- Do not ask both agents to review each other before both initial files exist
+- Keep each analysis structured and graph-ready
+- Prefer short claims, explicit evidence, clear risks, and concrete recommendations
+- Use this workflow only when deeper analysis is worth the extra token cost
+- Keep the final output graph-first and decision-oriented
+
 ## Graph Model
 
 ### Node Types
